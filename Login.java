@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 public class Login {
     public static void main(String[] args){
         JFrame f=new JFrame("LOGIN");
@@ -24,9 +25,10 @@ public class Login {
         JLabel user=new JLabel("User Name");
         JLabel pass=new JLabel("Password");
         JTextField userText=new JTextField();
-        JTextField passText=new JTextField();
+        JPasswordField passText=new JPasswordField();
         JButton login=new JButton("Login");
         JButton sign=new JButton("Sign up");
+        passText.setEchoChar('*');
         user.setFont(tf);
         user.setForeground(Color.white);
         pass.setFont(tf);
@@ -50,6 +52,15 @@ public class Login {
         JButton balance=new JButton("Balance Enquiry");
         f.add(balance);
         balance.setBounds(165,400,150,40);
+        login.addActionListener(e -> {
+            String uname = userText.getText();
+            String pwd = passText.getText();
+            if (uname.equals("Akshat") && pwd.equals("1234")) {
+                JOptionPane.showMessageDialog(f, "Login successful!");
+            } else {
+                JOptionPane.showMessageDialog(f, "Invalid credentials", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
         f.setVisible(true);
     }
 }
