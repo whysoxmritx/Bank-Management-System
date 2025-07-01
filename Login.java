@@ -49,6 +49,7 @@ public class Login {
         f.add(forgot);
         forgot.setForeground(new Color(180,150,255));
         forgot.setBounds(270,295,150,20);
+        forgot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         JButton balance=new JButton("Balance Enquiry");
         f.add(balance);
         balance.setBounds(165,400,150,40);
