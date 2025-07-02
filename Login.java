@@ -70,11 +70,17 @@ public class Login {
         terms.setForeground(Color.lightGray);
         terms.setFont(new Font(Font.SANS_SERIF,2,12));
         terms.setBounds(100,450,320,30);
-        JLabel conditions=new JLabel("Terms & conditions.");
+        JLabel conditions=new JLabel("*Terms & conditions.");
         f.add(conditions);
         conditions.setForeground(Color.lightGray);
         conditions.setFont(new Font(Font.SANS_SERIF,2,12));
         conditions.setBounds(185,465,200,30);
+        conditions.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        conditions.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(f, "Terms and Conditions:\n1. Secure login\n2. Data privacy guaranteed.");
+            }
+        });
         f.setVisible(true);
     }
 }
