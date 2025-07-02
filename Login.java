@@ -81,6 +81,10 @@ public class Login {
                 JOptionPane.showMessageDialog(f, "Terms and Conditions:\n1. Secure login\n2. Data privacy guaranteed.");
             }
         });
+        sign.addActionListener(e->{
+            f.dispose();
+            new SignUp();
+        });
         f.setVisible(true);
     }
 }
