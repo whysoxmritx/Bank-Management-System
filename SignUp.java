@@ -9,6 +9,11 @@ public class SignUp {
         s.setLayout(null);
         s.setLocationRelativeTo(null);
         s.getContentPane().setBackground(new Color(30,30,60));
+        JLabel welcome=new JLabel("Welcome New User");
+        s.add(welcome);
+        welcome.setForeground(new Color(102,153,255));
+        welcome.setFont(new Font(Font.DIALOG_INPUT,3,20));
+        welcome.setBounds(150,60,300,40);
         s.setVisible(true);
     }
     public static void main(String args[])

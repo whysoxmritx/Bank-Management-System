@@ -60,7 +60,10 @@ public class Login {
             if (uname.isEmpty() || pwd.isEmpty()) {
                 JOptionPane.showMessageDialog(f, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
             } else if (uname.equals("Akshat") && pwd.equals("1234")) {
-                JOptionPane.showMessageDialog(f, "Login successful!");
+                login.addActionListener(a->{
+                    f.dispose();
+                    new HomePage();
+                });
             } else {
                 JOptionPane.showMessageDialog(f, "Invalid credentials", "Error", JOptionPane.ERROR_MESSAGE);
             }
