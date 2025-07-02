@@ -9,6 +9,8 @@ public class SignUp {
         s.setLayout(null);
         s.setLocationRelativeTo(null);
         s.getContentPane().setBackground(new Color(30,30,60));
+        ImageIcon ig=new ImageIcon("logo.jpeg");
+        s.setIconImage(ig.getImage());
         JLabel welcome=new JLabel("Welcome New User");
         s.add(welcome);
         welcome.setForeground(new Color(102,153,255));
