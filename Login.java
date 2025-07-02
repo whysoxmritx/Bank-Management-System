@@ -62,6 +62,16 @@ public class Login {
                 JOptionPane.showMessageDialog(f, "Invalid credentials", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
+        JLabel terms=new JLabel("By clicking on 'Login' you accept that you have read out");
+        f.add(terms);
+        terms.setForeground(Color.lightGray);
+        terms.setFont(new Font(Font.SANS_SERIF,2,12));
+        terms.setBounds(100,450,320,30);
+        JLabel conditions=new JLabel("Terms & conditions.");
+        f.add(conditions);
+        conditions.setForeground(Color.lightGray);
+        conditions.setFont(new Font(Font.SANS_SERIF,2,12));
+        conditions.setBounds(185,465,200,30);
         f.setVisible(true);
     }
 }
