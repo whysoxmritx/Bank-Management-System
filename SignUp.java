@@ -65,17 +65,17 @@ public class SignUp {
 // 5. Convert image to JLabel
         ImageIcon icon = new ImageIcon(captchaImage);
         JLabel captchaLabel = new JLabel(icon);
-        captchaLabel.setBounds(80, 270, width, height);
+        captchaLabel.setBounds(80, 290, width, height);
         s.add(captchaLabel);
 
 // 6. Add CAPTCHA input field
         JTextField captchaInput = new JTextField();
-        captchaInput.setBounds(250, 280, 100, 30);
+        captchaInput.setBounds(250, 300, 100, 30);
         s.add(captchaInput);
 
 // 7. Submit button
         JButton submit = new JButton("Submit");
-        submit.setBounds(180, 360, 100, 40);
+        submit.setBounds(180, 380, 100, 40);
         submit.setBackground(new Color(102, 153, 255));
         submit.setForeground(Color.WHITE);
         s.add(submit);
@@ -99,6 +99,11 @@ public class SignUp {
         JTextField emailText=new JTextField();
         s.add(emailText);
         emailText.setBounds(250,210,200,30);
+        JLabel enter=new JLabel("Enter Captcha:");
+        s.add(enter);
+        enter.setFont(new Font(Font.MONOSPACED,1,17));
+        enter.setForeground(Color.white);
+        enter.setBounds(80,245,200,40);
         s.setVisible(true);
     }
     public static void main(String args[])
