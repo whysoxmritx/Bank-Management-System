@@ -16,7 +16,7 @@ public class SignUp {
         JLabel welcome=new JLabel("Welcome New User");
         s.add(welcome);
         welcome.setForeground(new Color(102,153,255));
-        welcome.setFont(new Font(Font.DIALOG_INPUT,3,20));
+        welcome.setFont(new Font(Font.DIALOG_INPUT,1,20));
         welcome.setBounds(150,60,300,40);
         JLabel fName=new JLabel("First Name");
         s.add(fName);
@@ -65,17 +65,17 @@ public class SignUp {
 // 5. Convert image to JLabel
         ImageIcon icon = new ImageIcon(captchaImage);
         JLabel captchaLabel = new JLabel(icon);
-        captchaLabel.setBounds(80, 290, width, height);
+        captchaLabel.setBounds(80, 350, width, height);
         s.add(captchaLabel);
 
 // 6. Add CAPTCHA input field
         JTextField captchaInput = new JTextField();
-        captchaInput.setBounds(250, 300, 100, 30);
+        captchaInput.setBounds(250, 355, 100, 30);
         s.add(captchaInput);
 
 // 7. Submit button
         JButton submit = new JButton("Submit");
-        submit.setBounds(180, 380, 100, 40);
+        submit.setBounds(180, 450, 100, 40);
         submit.setBackground(new Color(102, 153, 255));
         submit.setForeground(Color.WHITE);
         s.add(submit);
@@ -103,7 +103,31 @@ public class SignUp {
         s.add(enter);
         enter.setFont(new Font(Font.MONOSPACED,1,17));
         enter.setForeground(Color.white);
-        enter.setBounds(80,245,200,40);
+        enter.setBounds(80,310,200,40);
+        JLabel pass = new JLabel("Password");
+        pass.setForeground(Color.white);
+        pass.setFont(new Font(Font.MONOSPACED, 1, 17));
+        pass.setBounds(80, 255, 300, 40);
+        s.add(pass);
+
+        JPasswordField passField = new JPasswordField();
+        passField.setBounds(250, 260, 110, 30);
+        s.add(passField);
+        JCheckBox terms = new JCheckBox("I accept the Terms and Conditions.");
+        terms.setBounds(120, 410, 300, 20);
+        terms.setForeground(Color.WHITE);
+        terms.setOpaque(false);
+        s.add(terms);
+        JCheckBox showPass = new JCheckBox("Show Password");
+        showPass.setBounds(310, 300, 150, 20);
+        showPass.setForeground(Color.WHITE);
+        showPass.setOpaque(false);
+        s.add(showPass);
+
+        showPass.addActionListener(e -> {
+            passField.setEchoChar(showPass.isSelected() ? (char) 0 : '*');
+        });
+
         s.setVisible(true);
     }
     public static void main(String args[])
