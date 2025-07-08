@@ -81,15 +81,7 @@ public class SignUp {
         s.add(submit);
 
 // 8. Validate CAPTCHA
-        submit.addActionListener(e -> {
-            String entered = captchaInput.getText().trim();
-            if (entered.equals(captchaStr)) {
-                JOptionPane.showMessageDialog(s, "Sign up successful!");
-                // new Login(); or move forward
-            } else {
-                JOptionPane.showMessageDialog(s, "Invalid CAPTCHA. Try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+        
         JTextField n1=new JTextField();
         s.add(n1);
         n1.setBounds(250,107,130,30);
