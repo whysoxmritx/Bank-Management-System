@@ -18,12 +18,12 @@ public class SignUp {
         welcome.setForeground(new Color(102,153,255));
         welcome.setFont(new Font(Font.DIALOG_INPUT,1,20));
         welcome.setBounds(150,60,300,40);
-        JLabel fName=new JLabel("First Name");
+        JLabel fName=new JLabel("Name");
         s.add(fName);
         fName.setForeground(Color.white);
         fName.setFont(new Font(Font.MONOSPACED,1,17));
         fName.setBounds(80,100,300,40);
-        JLabel sName=new JLabel("Sure Name");
+        JLabel sName=new JLabel("Account Number");
         s.add(sName);
         sName.setForeground(Color.white);
         sName.setFont(new Font(Font.MONOSPACED,1,17));
@@ -92,10 +92,10 @@ public class SignUp {
         });
         JTextField n1=new JTextField();
         s.add(n1);
-        n1.setBounds(250,107,110,30);
+        n1.setBounds(250,107,130,30);
         JTextField n2=new JTextField();
         s.add(n2);
-        n2.setBounds(250,160,110,30);
+        n2.setBounds(250,160,130,30);
         JTextField emailText=new JTextField();
         s.add(emailText);
         emailText.setBounds(250,210,200,30);
@@ -111,7 +111,7 @@ public class SignUp {
         s.add(pass);
 
         JPasswordField passField = new JPasswordField();
-        passField.setBounds(250, 260, 110, 30);
+        passField.setBounds(250, 260, 130, 30);
         s.add(passField);
         JCheckBox terms = new JCheckBox("I accept the Terms and Conditions.");
         terms.setBounds(120, 410, 300, 20);
@@ -127,8 +127,47 @@ public class SignUp {
         showPass.addActionListener(e -> {
             passField.setEchoChar(showPass.isSelected() ? (char) 0 : '*');
         });
+        submit.addActionListener(e -> {
+            String name = n1.getText().trim();
+            String accNum = n2.getText().trim();
+            String emailStr = emailText.getText().trim();
+            String passStr = new String(passField.getPassword()).trim();
+            String enteredCaptcha = captchaInput.getText().trim();
 
-        s.setVisible(true);
+            if (name.isEmpty() || accNum.isEmpty() || emailStr.isEmpty() || passStr.isEmpty()) {
+                JOptionPane.showMessageDialog(s, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!accNum.matches("\\d{11}")) {
+                JOptionPane.showMessageDialog(s, "Account number must be exactly 11 digits!", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!emailStr.contains("@") || !emailStr.contains(".")) {
+                JOptionPane.showMessageDialog(s, "Invalid email format!", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (!terms.isSelected()) {
+                JOptionPane.showMessageDialog(s, "You must accept the Terms and Conditions.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            if (!enteredCaptcha.equals(captchaStr)) {
+                JOptionPane.showMessageDialog(s, "Invalid CAPTCHA. Try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!passStr.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$")) {
+                JOptionPane.showMessageDialog(s,
+                        "Password must:\n- Be at least 6 characters\n- Include a capital letter\n- Include a small letter\n- Include a special character",
+                        "Weak Password", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(s, "Sign up successful!");
+            s.dispose();
+            new HomePage();
+        });
+            s.setVisible(true);
     }
     public static void main(String args[])
     {
