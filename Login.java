@@ -9,7 +9,7 @@ public class Login {
         f.setLayout(null);
         f.setLocationRelativeTo(null);
         f.getContentPane().setBackground(new Color(30,30,60));
-        ImageIcon ig=new ImageIcon("logo.jpeg");
+        ImageIcon ig=new ImageIcon("logo.jpg");
         Image img = ig.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(img);
         JLabel logo = new JLabel(scaledIcon);
@@ -17,7 +17,7 @@ public class Login {
         f.setIconImage(ig.getImage());
         f.add(logo);
         Font tf=new Font(Font.MONOSPACED,1,17);
-        JLabel text=new JLabel("Welcome to the Bank");
+        JLabel text=new JLabel("Welcome to FinSutra");
         text.setForeground(Color.white);
         text.setFont(tf);
         f.add(text);
