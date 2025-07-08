@@ -81,7 +81,7 @@ public class SignUp {
         s.add(submit);
 
 // 8. Validate CAPTCHA
-        
+
         JTextField n1=new JTextField();
         s.add(n1);
         n1.setBounds(250,107,130,30);

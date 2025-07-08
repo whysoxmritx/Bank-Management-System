@@ -53,6 +53,10 @@ public class Login {
         JButton balance=new JButton("Balance Enquiry");
         f.add(balance);
         balance.setBounds(165,400,150,40);
+        balance.addActionListener(e->{
+            f.dispose();
+            new BalanceEnquiry();
+        });
         login.addActionListener(e -> {
             String uname = userText.getText();
             String pwd = passText.getText();

@@ -11,6 +11,11 @@ public class BalanceEnquiry {
         h.getContentPane().setBackground(new Color(30,30,60));
         ImageIcon ig=new ImageIcon("logo.jpg");
         h.setIconImage(ig.getImage());
+        JLabel ac=new JLabel("A/C no.");
+        h.add(ac);
+        ac.setForeground(Color.lightGray);
+        ac.setFont(new Font(Font.MONOSPACED,2,17));
+        ac.setBounds(60,60,100,40);
         h.setVisible(true);
     }
     public static void main(String[] args){
