@@ -35,6 +35,29 @@ public class BalanceEnquiry {
         JTextField brn=new JTextField();
         h.add(brn);
         brn.setBounds(220,230,130,30);
+        JButton check = new JButton("Check Balance");
+        check.setBounds(170, 300, 150, 40);
+        check.setBackground(new Color(102, 153, 255));
+        check.setForeground(Color.WHITE);
+        h.add(check);
+
+        JLabel result = new JLabel();
+        result.setForeground(Color.WHITE);
+        result.setFont(new Font(Font.MONOSPACED, Font.BOLD, 18));
+        result.setBounds(150, 360, 300, 40);
+        h.add(result);
+
+        check.addActionListener(e -> {
+            String account = bal.getText();
+            String phone = ph.getText();
+            String branchName = brn.getText();
+            if(account.equals("10125889489") && phone.equals("7238579935") && branchName.equals("Ashok Nagar")) {
+                result.setText("Available Balance: ₹25,000");
+            } else {
+                result.setText("Account not found!");
+            }
+        });
+
         h.setVisible(true);
     }
     public static void main(String[] args){
