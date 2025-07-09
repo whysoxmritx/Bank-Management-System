@@ -8,6 +8,7 @@ public class Login {
         f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
         f.setLayout(null);
         f.setLocationRelativeTo(null);
+        f.setResizable(false);
         f.getContentPane().setBackground(new Color(30,30,60));
         ImageIcon ig=new ImageIcon("logo.jpg");
         Image img = ig.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
@@ -123,7 +124,41 @@ public class Login {
             bal.setLayout(null);
             bal.setLocationRelativeTo(f);
             bal.getContentPane().setBackground(new Color(40,40,70));
-            
+            JLabel ac=new JLabel("A/C no.:");
+            bal.add(ac);
+            ac.setForeground(Color.lightGray);
+            ac.setBounds(30,30,100,30);
+            JTextField b=new JTextField();
+            bal.add(b);
+            b.setBounds(150,30,130,30);
+            JLabel phn=new JLabel("Phone No.:");
+            bal.add(phn);
+            phn.setForeground(Color.lightGray);
+            phn.setBounds(30,70,100,30);
+            JTextField ph=new JTextField();
+            bal.add(ph);
+            ph.setBounds(150,70,130,30);
+            JLabel branch=new JLabel("Branch:");
+            bal.add(branch);
+            branch.setForeground(Color.lightGray);
+            branch.setBounds(30,110,100,30);
+            JTextField brn=new JTextField();
+            bal.add(brn);
+            brn.setBounds(150,110,130,30);
+            JButton chq=new JButton("Check Balance");
+            bal.add(chq);
+            chq.setBounds(110,155,120,30);
+            chq.setBackground(new Color(102, 153, 255));
+            chq.addActionListener(ev->{
+                String account = b.getText();
+                String phone = ph.getText();
+                String branchName = brn.getText();
+                if(account.equals("10125889489") && phone.equals("7238579935") && branchName.equals("Ashok Nagar")) {
+                    JOptionPane.showMessageDialog(bal,"Balance: 1,00,000.00");
+                } else {
+                    JOptionPane.showMessageDialog(bal,"Account not found!");
+                }
+            });
             bal.setVisible(true);
         });
         login.addActionListener(e -> {
