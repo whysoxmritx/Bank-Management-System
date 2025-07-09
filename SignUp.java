@@ -10,6 +10,7 @@ public class SignUp {
         s.setDefaultCloseOperation(s.EXIT_ON_CLOSE);
         s.setLayout(null);
         s.setLocationRelativeTo(null);
+        s.setResizable(false);
         s.getContentPane().setBackground(new Color(30,30,60));
         ImageIcon ig=new ImageIcon("logo.jpg");
         s.setIconImage(ig.getImage());

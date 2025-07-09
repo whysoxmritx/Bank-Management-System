@@ -171,7 +171,7 @@ public class Login {
 
             if (uname.isEmpty() || pwd.isEmpty()) {
                 JOptionPane.showMessageDialog(f, "Please fill all fields!", "Warning", JOptionPane.WARNING_MESSAGE);
-            } else if (uname.equals("Akshat") && pwd.equals("1234")) {
+            } else if (uname.equals("Akshat") && pwd.equals("Ak$hat0")) {
                 login.addActionListener(a->{
                     f.dispose();
                     new HomePage();
