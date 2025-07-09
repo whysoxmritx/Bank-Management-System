@@ -55,10 +55,73 @@ public class HomePage {
             {
                 button.addActionListener(e->{
                     JDialog cal=new JDialog(h,"Balance Enquiry",true);
-                    cal.setSize(350,250);
+                    cal.setSize(400,350);
                     cal.setLayout(null);
                     cal.setLocationRelativeTo(h);
                     cal.getContentPane().setBackground(new Color(40,40,70));
+                    JLabel labelPrincipal = new JLabel("Principal (₹):");
+                    JTextField textPrincipal = new JTextField();
+                    JLabel labelRate = new JLabel("Rate (% per annum):");
+                    JTextField textRate = new JTextField();
+                    JLabel labelTime = new JLabel("Time (years):");
+                    JTextField textTime = new JTextField();
+                    JLabel labelType = new JLabel("Interest Type:");
+                    JComboBox<String> interestTypeBox = new JComboBox<>(new String[]{"Simple Interest", "Compound Interest"});
+                    JLabel labelResult = new JLabel("Interest = ₹0.00");
+                    JButton calcButton = new JButton("Calculate");
+                    JButton clearButton = new JButton("Clear");
+                    calcButton.addActionListener(ev -> {
+                        try {
+                            double principal = Double.parseDouble(textPrincipal.getText());
+                            double rate = Double.parseDouble(textRate.getText());
+                            double time = Double.parseDouble(textTime.getText());
+
+                            String selectedType = (String) interestTypeBox.getSelectedItem();
+                            double interest;
+
+                            if ("Simple Interest".equals(selectedType)) {
+                                interest = (principal * rate * time) / 100;
+                            } else {
+                                interest = principal * Math.pow((1 + rate / 100), time) - principal;
+                            }
+
+                            labelResult.setText(String.format("Interest = ₹%.2f", interest));
+                        } catch (NumberFormatException ex) {
+                            JOptionPane.showMessageDialog(cal, "Please enter valid numbers!", "Input Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    });
+
+                    clearButton.addActionListener(ev -> {
+                        textPrincipal.setText("");
+                        textRate.setText("");
+                        textTime.setText("");
+                        interestTypeBox.setSelectedIndex(0);
+                        labelResult.setText("Interest = ₹0.00");
+                    });
+
+                    cal.add(labelPrincipal); cal.add(textPrincipal);
+                    cal.add(labelRate);     cal.add(textRate);
+                    cal.add(labelTime);     cal.add(textTime);
+                    cal.add(labelType);     cal.add(interestTypeBox);
+                    cal.add(calcButton);    cal.add(clearButton);
+                    cal.add(new JLabel());  cal.add(labelResult);
+                    labelPrincipal.setBounds(30, 20, 150, 20);
+                    labelPrincipal.setForeground(Color.WHITE);
+                    textPrincipal.setBounds(180, 20, 160, 25);
+                    labelRate.setBounds(30, 60, 150, 20);
+                    labelRate.setForeground(Color.WHITE);
+                    textRate.setBounds(180, 60, 160, 25);
+                    labelTime.setBounds(30, 100, 150, 20);
+                    labelTime.setForeground(Color.WHITE);
+                    textTime.setBounds(180, 100, 160, 25);
+                    labelType.setBounds(30, 140, 150, 20);
+                    labelType.setForeground(Color.WHITE);
+                    interestTypeBox.setBounds(180, 140, 160, 25);
+                    labelResult.setBounds(30, 240, 300, 25);
+                    labelResult.setForeground(Color.CYAN);
+                    calcButton.setBounds(60, 190, 100, 30);
+                    clearButton.setBounds(200, 190, 100, 30);
+
                     cal.setVisible(true);
                 });
             }
