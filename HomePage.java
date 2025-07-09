@@ -51,6 +51,25 @@ public class HomePage {
                         button.setBackground(new Color(75,110,130));
 }
             });
+            if(t.equals("Calculator"))
+            {
+                button.addActionListener(e->{
+                    JDialog cal=new JDialog(h,"Balance Enquiry",true);
+                    cal.setSize(350,250);
+                    cal.setLayout(null);
+                    cal.setLocationRelativeTo(h);
+                    cal.getContentPane().setBackground(new Color(40,40,70));
+                    cal.setVisible(true);
+                });
+            }
+            if (t.equals("Logout")) {
+                button.addActionListener(e -> {
+                    int confirm = JOptionPane.showConfirmDialog(h, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        h.dispose();
+                        new Login(); // Your login class
+   }});
+            }
         }
         int blockWidth = 140;
         int blockHeight=80;
@@ -94,7 +113,51 @@ public class HomePage {
         label3.setForeground(Color.white);
         label3.setFont(new Font(Font.SANS_SERIF,1,12));
         block3.add(label3);
-        
+        JLabel quickTaskLabel = new JLabel("Quick Tasks");
+        quickTaskLabel.setForeground(Color.WHITE);
+        quickTaskLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+        quickTaskLabel.setBounds(30, 130, 200, 20);
+        body.add(quickTaskLabel);
+        String[] task={"Transfer Money","Pay Bills","Check Offers"};
+        int taskX=30;
+        int taskY=160;
+        int taskWidth=130;
+        int taskHeight=40;
+        int taskGap=20;
+        for(String tn:task){
+            JButton taskB=new JButton(tn);
+                    taskB.setBounds(taskX,taskY,taskWidth,taskHeight);
+            taskB.setBackground(new Color(255,204,102));
+            taskB.setForeground(Color.BLACK);
+            taskB.setFocusPainted(false);
+            taskB.setFont(new Font(Font.SANS_SERIF,1,11));
+            taskB.setBorder(BorderFactory.createLineBorder((Color.white) ));
+            body.add(taskB);
+            taskX+=taskWidth+taskGap;
+        }
+        JLabel help = new JLabel("Need Help?");
+        help.setBounds(360, 380, 100, 30);
+        help.setBackground(new Color(200, 255, 255));
+        help.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 11));
+        help.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        help.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(h,"You can reach us at support@finSutra.com");
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                help.setForeground(Color.YELLOW);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                help.setForeground(new Color(200,255,255));
+            }
+        });
+        body.add(help);
+
         h.setVisible(true);
     }
     public static void main(String args[]){

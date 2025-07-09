@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 public class Login {
-    public static void main(String[] args){
+    public Login(){
         JFrame f=new JFrame("LOGIN");
         f.setSize(500,600);
         f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
@@ -201,6 +201,9 @@ public class Login {
             new SignUp();
         });
         f.setVisible(true);
+    }
+    public static void main(String[] args){
+        new Login();
     }
 }
 
