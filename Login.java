@@ -92,12 +92,12 @@ public class Login {
                 reSet.addActionListener(ev->{
                     String cardNo=card.getText().trim();
                     String newW=new String(pas.getPassword());
-                    String c=cvv.getText().trim();
+                    String c=cvV.getText().trim();
                     if (cardNo.isEmpty() || c.isEmpty() || newW.isEmpty()) {
                         JOptionPane.showMessageDialog(reset, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
                     } else if (!cardNo.matches("\\d{16}")) {
                         JOptionPane.showMessageDialog(reset, "Invalid card number. Must be 16 digits.");
-                    } else if (c.matches("\\d{3}")) {
+                    } else if (!c.matches("\\d{3}")) {
                         JOptionPane.showMessageDialog(reset, "Invalid CVV. Must be 3 digits.");
                     } else if (!newW.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$")) {
                         JOptionPane.showMessageDialog(reset,
@@ -118,8 +118,13 @@ public class Login {
         f.add(balance);
         balance.setBounds(165,400,150,40);
         balance.addActionListener(e->{
-            f.dispose();
-            new BalanceEnquiry();
+            JDialog bal=new JDialog(f,"Balance Enquiry",true);
+            bal.setSize(350,250);
+            bal.setLayout(null);
+            bal.setLocationRelativeTo(f);
+            bal.getContentPane().setBackground(new Color(40,40,70));
+            
+            bal.setVisible(true);
         });
         login.addActionListener(e -> {
             String uname = userText.getText();
