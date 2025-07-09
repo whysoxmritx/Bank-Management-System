@@ -88,7 +88,7 @@ public class Login {
                 pas.setBounds(150,110,120,30);
                 JButton reSet=new JButton("RESET");
                 reset.add(reSet);
-                reSet.setBackground(Color.cyan);
+                reSet.setBackground(new Color(102, 153, 255));
                 reSet.setBounds(130,150,100,40);
                 reSet.addActionListener(ev->{
                     String cardNo=card.getText().trim();
@@ -153,7 +153,11 @@ public class Login {
                 String account = b.getText();
                 String phone = ph.getText();
                 String branchName = brn.getText();
-                if(account.equals("10125889489") && phone.equals("7238579935") && branchName.equals("Ashok Nagar")) {
+                if(account.isEmpty()||phone.isEmpty()||branchName.isEmpty())
+                {
+                    JOptionPane.showMessageDialog(bal,"All fields are mandatory","Error",JOptionPane.ERROR_MESSAGE);
+                }
+               else if(account.equals("10125889489") && phone.equals("7238579935") && branchName.equals("Ashok Nagar")) {
                     JOptionPane.showMessageDialog(bal,"Balance: 1,00,000.00");
                 } else {
                     JOptionPane.showMessageDialog(bal,"Account not found!");

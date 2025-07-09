@@ -14,8 +14,13 @@ public class HomePage {
         JLabel welcome=new JLabel("HELLO AKSHAT!");
         h.add(welcome);
         welcome.setForeground(new Color(180,150,225));
-        welcome.setFont(new Font(Font.SANS_SERIF,2,20));
-        welcome.setBounds(50,40,200,40);
+        welcome.setFont(new Font(Font.MONOSPACED,1,20));
+        welcome.setBounds(160,40,200,40);
+        JLabel text=new JLabel("Thank you for choosing FinSutra");
+        h.add(text);
+        text.setForeground(Color.white);
+        text.setFont(new Font(Font.DIALOG_INPUT,1,15));
+        text.setBounds(100,70,300,20);
         h.setVisible(true);
     }
     public static void main(String args[]){
