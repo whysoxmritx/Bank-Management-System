@@ -50,6 +50,45 @@ public class Login {
         forgot.setForeground(new Color(180,150,255));
         forgot.setBounds(270,295,150,20);
         forgot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        forgot.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                JDialog reset=new JDialog(f,"Reset Password",true);
+                reset.setSize(350,250);
+                reset.setLayout(null);
+                reset.setLocationRelativeTo(f);
+                reset.getContentPane().setBackground(new Color(40,40,70));
+                JLabel debit=new JLabel("Debit Card No.");
+                reset.add(debit);
+                debit.setForeground(Color.white);
+                debit.setBounds(30,30,100,30);
+                JLabel cvv=new JLabel("CVV*");
+                reset.add(cvv);
+                cvv.setForeground(Color.white);
+                cvv.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                    JOptionPane.showMessageDialog(reset,"See at the back of the card.");
+                    }
+                });
+                cvv.setBounds(30,70,120,30);
+                JTextField email=new JTextField();
+                reset.add(email);
+                JLabel newPass=new JLabel("New Password");
+                reset.add(newPass);
+                newPass.setForeground(Color.white);
+                newPass.setBounds(30,110,120,30);
+                JTextField card=new JTextField();
+                reset.add(card);
+                card.setBounds(150,30,120,30);
+                JTextField cvV=new JTextField();
+                reset.add(cvV);
+                cvV.setBounds(150,70,120,30);
+                JTextField pas=new JTextField();
+                reset.add(pas);
+                pas.setBounds(150,110,120,30);
+                
+                reset.setVisible(true);
+            }
+        });
         JButton balance=new JButton("Balance Enquiry");
         f.add(balance);
         balance.setBounds(165,400,150,40);
