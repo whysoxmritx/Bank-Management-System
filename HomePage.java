@@ -232,7 +232,7 @@ public class HomePage {
         recentLabel.setFont(new Font(Font.SANS_SERIF,1,13));
         recentLabel.setBounds(30,240,200,20);
         body.add(recentLabel);
-        String[] transc={"₹1500 UPI to Rohan","₹299 bill paid - Netflix","₹40000 credited Salary"};
+        String[] transc={"₹1500 UPI to Amrita","₹299 bill paid - Netflix","₹40000 credited Salary"};
         int txY=270;
         for(String t:transc)
         {
