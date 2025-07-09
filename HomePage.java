@@ -227,6 +227,27 @@ public class HomePage {
             }
         });
         body.add(help);
+        JLabel recentLabel=new JLabel("Recent Transactions");
+        recentLabel.setForeground(Color.white);
+        recentLabel.setFont(new Font(Font.SANS_SERIF,1,13));
+        recentLabel.setBounds(30,240,200,20);
+        body.add(recentLabel);
+        String[] transc={"₹1500 UPI to Rohan","₹299 bill paid - Netflix","₹40000 credited Salary"};
+        int txY=270;
+        for(String t:transc)
+        {
+            JLabel tx=new JLabel("• "+t);
+            tx.setForeground(new Color(200,200,255));
+            tx.setFont(new Font(Font.MONOSPACED,0,12));
+            tx.setBounds(40,txY,300,20);
+            body.add(tx);
+            txY+=22;
+        }
+        JLabel tips = new JLabel("<html><b>Tip:</b> Pay bills on time to boost your credit score!</html>");
+        tips.setForeground(new Color(180, 220, 255));
+        tips.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 12));
+        tips.setBounds(30, txY + 10, 300, 40);
+        body.add(tips);
 
         h.setVisible(true);
     }
