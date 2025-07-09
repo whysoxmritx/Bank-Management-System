@@ -125,6 +125,13 @@ public class HomePage {
                     cal.setVisible(true);
                 });
             }
+            if(t.equals("About us"))
+            {
+                button.addActionListener(r->{
+                    h.dispose();
+                    new AboutUs();
+                });
+            }
             if (t.equals("Logout")) {
                 button.addActionListener(e -> {
                     int confirm = JOptionPane.showConfirmDialog(h, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
