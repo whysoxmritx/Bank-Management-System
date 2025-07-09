@@ -82,10 +82,35 @@ public class Login {
                 JTextField cvV=new JTextField();
                 reset.add(cvV);
                 cvV.setBounds(150,70,120,30);
-                JTextField pas=new JTextField();
+                JPasswordField pas=new JPasswordField();
                 reset.add(pas);
                 pas.setBounds(150,110,120,30);
-                
+                JButton reSet=new JButton("RESET");
+                reset.add(reSet);
+                reSet.setBackground(Color.cyan);
+                reSet.setBounds(130,150,100,40);
+                reSet.addActionListener(ev->{
+                    String cardNo=card.getText().trim();
+                    String newW=new String(pas.getPassword());
+                    String c=cvv.getText().trim();
+                    if (cardNo.isEmpty() || c.isEmpty() || newW.isEmpty()) {
+                        JOptionPane.showMessageDialog(reset, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else if (!cardNo.matches("\\d{16}")) {
+                        JOptionPane.showMessageDialog(reset, "Invalid card number. Must be 16 digits.");
+                    } else if (c.matches("\\d{3}")) {
+                        JOptionPane.showMessageDialog(reset, "Invalid CVV. Must be 3 digits.");
+                    } else if (!newW.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$")) {
+                        JOptionPane.showMessageDialog(reset,
+                                "<html>Password must contain:<br>- At least 6 characters<br>- 1 uppercase<br>- 1 lowercase<br>- 1 special character</html>",
+                                "Weak Password",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+                    } else {
+                        // Password reset successful
+                        JOptionPane.showMessageDialog(reset, "Password reset successful!");
+                        reset.dispose(); // close the dialog
+                    }
+                });
                 reset.setVisible(true);
             }
         });
