@@ -160,6 +160,19 @@ public class SignUp {
             s.dispose();
             new HomePage();
         });
+        ImageIcon backIcon=new ImageIcon("back.jpg");
+        Image scaled = backIcon.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+        JButton back=new JButton(new ImageIcon(scaled));
+        s.add(back);
+        back.setFocusPainted(false);
+        back.setBounds(10,10,40,40);
+        back.setBorderPainted(false);
+        back.setContentAreaFilled(false);
+        back.setToolTipText("BACK");
+        back.addActionListener(e->{
+            s.dispose();
+            new Login();
+        });
             s.setVisible(true);
     }
     public static void main(String args[])
