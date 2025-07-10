@@ -60,10 +60,8 @@ public class AboutUs {
             title.setForeground(new Color(180, 150, 225));
             title.setFont(new Font(Font.MONOSPACED, 1, 20));
             title.setBounds(170, 60, 300, 30);
-            JTextArea about=new JTextArea("FinSutra is a modern digital banking solution\n"+"that offers an easy and secure way to\n"+
-                    "manage their finances.\n\n"+"Our mission is to empower customer with\n"+"technology driven tools to track savings.\n"+
-                    "manage fixed deposits, and plan for a better\n"+"Financial future.\n\n"+"We are commited to providing a smooth,\n"+"responsive, and feature enriched banking\n"+
-                    "experience for everyone.");
+            JTextArea about=new JTextArea("FinSutra is a modern digital banking solution that offers an easy and secure way to manage their finances.\n\n"+"Our mission is to empower customer with technology driven tools to track savings.Manage fixed deposits, and plan for a better Financial future.\n\n"
+                    +"We are commited to providing a smooth, responsive, and feature enriched banking experience for everyone.");
             au.add(about);
             about.setWrapStyleWord(true);
             about.setEditable(false);
