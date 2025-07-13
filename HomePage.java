@@ -54,7 +54,7 @@ public class HomePage {
             if(t.equals("Calculator"))
             {
                 button.addActionListener(e->{
-                    JDialog cal=new JDialog(h,"Balance Enquiry",true);
+                    JDialog cal=new JDialog(h,"Calculator",true);
                     cal.setSize(400,350);
                     cal.setLayout(null);
                     cal.setLocationRelativeTo(h);
