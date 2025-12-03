@@ -137,7 +137,7 @@ public class HomePage {
                     int confirm = JOptionPane.showConfirmDialog(h, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
                         h.dispose();
-                        new Login(); // Your login class
+                        new Login();
    }});
             }
         }
